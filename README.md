@@ -14,4 +14,10 @@ dune exec ./main.exe data/great-expectations.txt [YOUR CIPHERTEXT] 1000 100
 
 Currently, the starts and ends of lines, as well as spaces, are not included in forming the bigram frequencies - scoring is therefore hampered as, to take one example, it is a quality of some letters that they appear more often at the start or ends of words. 
 
-Commenting on the project as a whole, it has uncovered some words in longer (>50 characters) ciphertexts within a short runtime ~10-20 seconds. However, as of now it cannot viably be used to decrypt substitution ciphers.
+Furthermore, the project is limmited to bigrams - it would be nice to perhaps extent this to bigrams, or to recognise words / phrases in the scoring function.
+
+The scoring function is also incomplete: overall frequency of a phrase is currently computed additively, with zero-probabilities left at zero. The paper made use of smoothing techniques which I would like to implement.
+
+The training corpus in the example (Dicken's Great Expectations) is relatively small and so bigrams can be computed at runtime. It would be better to use a (much) larger corpus which would involve saving the frequenies to disk.
+
+As of now the project cannot viably be used to decrypt substitution ciphers; it has manged however to uncovered some words in longer (>50 characters) ciphertexts within a short runtime: ~10-20 seconds.
