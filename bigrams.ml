@@ -28,7 +28,7 @@ let normalize_text text =
 (* ------------------------------------------------------------------------------------------ *)
 
 let compute_bigram_frequencies filename =
-  let bigram_counts = Hashtbl.create 676 in (* '26 * 26' possible bigrams *)
+  let bigram_counts = Hashtbl.create 729 in (* 27 * 27 possible bigrams *)
 
   let process_line line =
     let normalized = normalize_text line in
@@ -36,9 +36,8 @@ let compute_bigram_frequencies filename =
     for i = 0 to len - 2 do
       let ch1 = normalized.[i] in
       let ch2 = normalized.[i + 1] in
-      if ch1 != ' ' && ch2 != ' ' then (* we'll ignore spaces and non-alphabetical characters *)
-        let bigram = String.make 1 ch1 ^ String.make 1 ch2 in
-        Hashtbl.replace bigram_counts bigram (1 + (Hashtbl.find_opt bigram_counts bigram |> Option.value ~default:0))
+      let bigram = String.make 1 ch1 ^ String.make 1 ch2 in
+      Hashtbl.replace bigram_counts bigram (1 + (Hashtbl.find_opt bigram_counts bigram |> Option.value ~default:0))
     done
   in
 
