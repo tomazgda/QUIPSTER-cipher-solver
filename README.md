@@ -22,7 +22,7 @@ The scoring function is also incomplete: the overall frequency of a phrase is cu
 
 The training corpus in the example (Dicken's Great Expectations) is relatively small and so bigrams can be computed at runtime - which is what the project does. It would be better to use a (much) larger corpus which would involve saving the frequenies to disk.
 
-~As of now the project cannot viably be used to decrypt substitution ciphers; it has manged however to uncovered some words in longer (>50 characters) ciphertexts within a short runtime: ~10-20 seconds.~
+~As of now the project cannot viably be used to decrypt substitution ciphers; it has manged however to uncovered some words in longer (>50 characters) ciphertexts within a short runtime: 10-20 seconds.~
 
 It kind of works!
 
